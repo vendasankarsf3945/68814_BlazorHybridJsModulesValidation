@@ -1,0 +1,3 @@
+window.validationPlainScript = {
+    getStatus: () => "Loaded"
+};

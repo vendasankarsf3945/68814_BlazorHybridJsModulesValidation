@@ -1,0 +1,33 @@
+﻿@inject IJSRuntime JS
+
+<section class="rcl-result @resultClass">
+    <h2>Referenced Razor class library</h2>
+    <p><strong>RCL JavaScript initializer:</strong> @status</p>
+    <p><strong>RCL scoped CSS:</strong> Loaded when this panel has a green border.</p>
+</section>
+
+@code {
+    private string status = "Waiting...";
+    private string resultClass = string.Empty;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender)
+        {
+            return;
+        }
+
+        try
+        {
+            status = await JS.InvokeAsync<string>("rclModuleValidation.getStatus");
+            resultClass = status == "Loaded" ? "rcl-pass" : "rcl-fail";
+        }
+        catch (Exception exception)
+        {
+            status = $"Failed: {exception.Message}";
+            resultClass = "rcl-fail";
+        }
+
+        StateHasChanged();
+    }
+}

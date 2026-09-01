@@ -1,0 +1,43 @@
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+
+<section>
+    <h2>Additional collocated module</h2>
+    <p><strong>Status:</strong> @status</p>
+</section>
+
+@code {
+    private IJSObjectReference? module;
+    private string status = "Waiting...";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender)
+        {
+            return;
+        }
+
+        try
+        {
+            module = await JS.InvokeAsync<IJSObjectReference>(
+                "import",
+                "./Components/Pages/AdditionalModule.razor.js");
+
+            status = await module.InvokeAsync<string>("getStatus");
+        }
+        catch (Exception exception)
+        {
+            status = $"Failed: {exception.Message}";
+        }
+
+        StateHasChanged();
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (module is not null)
+        {
+            await module.DisposeAsync();
+        }
+    }
+}

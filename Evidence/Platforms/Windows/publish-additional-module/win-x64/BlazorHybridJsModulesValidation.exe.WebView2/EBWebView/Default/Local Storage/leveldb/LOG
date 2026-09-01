@@ -1,0 +1,2 @@
+2026/09/01-11:40:24.645 5070 Creating DB D:\DotNet-Sample\Issue68814_BlazorHybridJsModules\BlazorHybridJsModulesValidation\bin\Release\net11.0-windows10.0.19041.0\win-x64\BlazorHybridJsModulesValidation.exe.WebView2\EBWebView\Default\Local Storage\leveldb since it was missing.
+2026/09/01-11:40:24.712 5070 Reusing MANIFEST D:\DotNet-Sample\Issue68814_BlazorHybridJsModules\BlazorHybridJsModulesValidation\bin\Release\net11.0-windows10.0.19041.0\win-x64\BlazorHybridJsModulesValidation.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001

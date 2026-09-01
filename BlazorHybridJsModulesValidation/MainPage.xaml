@@ -1,0 +1,11 @@
+﻿<ContentPage xmlns:local="clr-namespace:BlazorHybridJsModulesValidation"
+             xmlns:components="clr-namespace:BlazorHybridJsModulesValidation.Components"
+             x:Class="BlazorHybridJsModulesValidation.MainPage">
+
+    <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html">
+        <BlazorWebView.RootComponents>
+            <RootComponent Selector="#app" ComponentType="{x:Type components:Routes}" />
+        </BlazorWebView.RootComponents>
+    </BlazorWebView>
+
+</ContentPage>

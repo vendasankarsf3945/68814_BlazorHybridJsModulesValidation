@@ -1,0 +1,9 @@
+2026-09-01 06:10:22.772: [INFO] CurrentProfilePath: D:\DotNet-Sample\Issue68814_BlazorHybridJsModules\BlazorHybridJsModulesValidation\bin\Release\net11.0-windows10.0.19041.0\win-x64\BlazorHybridJsModulesValidation.exe.WebView2\EBWebView\Default
+2026-09-01 06:10:22.773: [INFO] Profiles total count: 1
+2026-09-01 06:10:22.773: [INFO] Profile: name=Profile 1 path=D:\DotNet-Sample\Issue68814_BlazorHybridJsModules\BlazorHybridJsModulesValidation\bin\Release\net11.0-windows10.0.19041.0\win-x64\BlazorHybridJsModulesValidation.exe.WebView2\EBWebView\Default lastActive=null
+2026-09-01 06:10:22.773: [INFO] LastUsedProfileDir: D:\DotNet-Sample\Issue68814_BlazorHybridJsModules\BlazorHybridJsModulesValidation\bin\Release\net11.0-windows10.0.19041.0\win-x64\BlazorHybridJsModulesValidation.exe.WebView2\EBWebView\Default
+2026-09-01 06:10:22.773: [INFO] OnDoneLoading sync enabled: 0
+2026-09-01 06:10:22.773: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-09-01 06:10:22.773: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-09-01 06:10:22.773: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-09-01 06:10:29.439: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1

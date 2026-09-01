@@ -1,0 +1,62 @@
+﻿@page "/"
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+
+<PageTitle>JavaScript module validation</PageTitle>
+
+<h1>JavaScript module validation</h1>
+
+<p>Each row turns green and reports <strong>Loaded</strong> when its asset executes.</p>
+
+<div class="validation-results">
+	<p class="validation-result @GetResultClass(collocatedModuleStatus)">
+		<strong>App collocated module:</strong> @collocatedModuleStatus
+	</p>
+	<p class="validation-result @GetResultClass(plainScriptStatus)">
+		<strong>App plain static script:</strong> @plainScriptStatus
+	</p>
+</div>
+
+<RclModuleStatus />
+
+@* <AdditionalModule /> *@
+@code {
+	private const string Waiting = "Waiting...";
+	private IJSObjectReference? module;
+	private string collocatedModuleStatus = Waiting;
+	private string plainScriptStatus = Waiting;
+
+	protected override async Task OnAfterRenderAsync(bool firstRender)
+	{
+		if (!firstRender)
+		{
+			return;
+		}
+
+		try
+		{
+			module = await JS.InvokeAsync<IJSObjectReference>(
+				"import", "./Components/Pages/Home.razor.js");
+			collocatedModuleStatus = await module.InvokeAsync<string>("getStatus");
+			plainScriptStatus = await JS.InvokeAsync<string>("validationPlainScript.getStatus");
+		}
+		catch (Exception exception)
+		{
+			collocatedModuleStatus = $"Failed: {exception.Message}";
+			plainScriptStatus = "Failed (see collocated module error)";
+		}
+
+		StateHasChanged();
+	}
+
+	private static string GetResultClass(string status) =>
+		status == "Loaded" ? "validation-pass" : status == Waiting ? string.Empty : "validation-fail";
+
+	public async ValueTask DisposeAsync()
+	{
+		if (module is not null)
+		{
+			await module.DisposeAsync();
+		}
+	}
+}

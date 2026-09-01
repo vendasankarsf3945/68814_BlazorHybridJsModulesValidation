@@ -1,0 +1,21 @@
+/* _content/ValidationRcl/RclModuleStatus.razor.rz.scp.css */
+.rcl-result[b-6wuto7l3sx] {
+    border: 0.35rem solid #6c757d;
+    padding: 1rem;
+}
+
+.rcl-result h2[b-6wuto7l3sx] {
+    font-size: 1.25rem;
+}
+
+.rcl-pass[b-6wuto7l3sx] {
+    background: #e8f5e9;
+    border-color: #198754;
+    color: #146c43;
+}
+
+.rcl-fail[b-6wuto7l3sx] {
+    background: #f8d7da;
+    border-color: #dc3545;
+    color: #842029;
+}
